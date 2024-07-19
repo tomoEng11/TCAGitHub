@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BB8284C12C465F270043BF95 /* TCAGitHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8284C02C465F270043BF95 /* TCAGitHubApp.swift */; };
-		BB8284C32C465F270043BF95 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8284C22C465F270043BF95 /* ContentView.swift */; };
 		BB8284C52C465F280043BF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8284C42C465F280043BF95 /* Assets.xcassets */; };
 		BB8284C82C465F280043BF95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8284C72C465F280043BF95 /* Preview Assets.xcassets */; };
 		BB8284D02C465F360043BF95 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BB8284CF2C465F360043BF95 /* ComposableArchitecture */; };
@@ -29,12 +28,12 @@
 		BB8285162C466F5F0043BF95 /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285152C466F5F0043BF95 /* RepositoryDetailView.swift */; };
 		BB8285182C46705E0043BF95 /* RepositoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285172C46705E0043BF95 /* RepositoryItemView.swift */; };
 		BB82851A2C4670840043BF95 /* SearchRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285192C4670840043BF95 /* SearchRepositoriesView.swift */; };
+		BB82851C2C46750A0043BF95 /* Confidential.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82851B2C46750A0043BF95 /* Confidential.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB8284BD2C465F270043BF95 /* TCAGitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCAGitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8284C02C465F270043BF95 /* TCAGitHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCAGitHubApp.swift; sourceTree = "<group>"; };
-		BB8284C22C465F270043BF95 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BB8284C42C465F280043BF95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB8284C72C465F280043BF95 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BB8284FA2C466A210043BF95 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		BB8285152C466F5F0043BF95 /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
 		BB8285172C46705E0043BF95 /* RepositoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItemView.swift; sourceTree = "<group>"; };
 		BB8285192C4670840043BF95 /* SearchRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesView.swift; sourceTree = "<group>"; };
+		BB82851B2C46750A0043BF95 /* Confidential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidential.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,6 @@
 			isa = PBXGroup;
 			children = (
 				BB8284C02C465F270043BF95 /* TCAGitHubApp.swift */,
-				BB8284C22C465F270043BF95 /* ContentView.swift */,
 				BB8284E52C465FBE0043BF95 /* SearchRepositoriesFeature */,
 				BB8284E02C465FAB0043BF95 /* RepositoryDetailFeature */,
 				BB8284D92C465F950043BF95 /* GitHubClientLive */,
@@ -130,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				BB8285092C466D5C0043BF95 /* GithubClient+Live.swift */,
+				BB82851B2C46750A0043BF95 /* Confidential.swift */,
 				BB82850B2C466DA70043BF95 /* GithubRequest.swift */,
 				BB82850D2C466DBF0043BF95 /* SearchReposRequest.swift */,
 			);
@@ -247,12 +247,12 @@
 			files = (
 				BB8284FD2C466A480043BF95 /* BaseRequest.swift in Sources */,
 				BB8285122C466E4F0043BF95 /* RepositoryItemReducer.swift in Sources */,
-				BB8284C32C465F270043BF95 /* ContentView.swift in Sources */,
 				BB8285162C466F5F0043BF95 /* RepositoryDetailView.swift in Sources */,
 				BB8285182C46705E0043BF95 /* RepositoryItemView.swift in Sources */,
 				BB8284C12C465F270043BF95 /* TCAGitHubApp.swift in Sources */,
 				BB8285142C466E8B0043BF95 /* RepositoryDetailReducer.swift in Sources */,
 				BB82850E2C466DBF0043BF95 /* SearchReposRequest.swift in Sources */,
+				BB82851C2C46750A0043BF95 /* Confidential.swift in Sources */,
 				BB8285032C466AC00043BF95 /* SearchReposResponse.swift in Sources */,
 				BB8285052C466ADA0043BF95 /* SearchReposResponse+Mock.swift in Sources */,
 				BB82850A2C466D5C0043BF95 /* GithubClient+Live.swift in Sources */,
