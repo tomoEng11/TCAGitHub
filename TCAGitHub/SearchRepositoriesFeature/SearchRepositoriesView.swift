@@ -11,12 +11,10 @@ import ComposableArchitecture
 public struct SearchRepositoriesView: View {
     let store: StoreOf<SearchRepositoriesReducer>
     struct ViewState: Equatable {
-        @BindingViewState var query: String
         @BindingViewState var showFavoritesOnly: Bool
         let hasMorePage: Bool
 
         init(store: BindingViewStore<SearchRepositoriesReducer.State>) {
-            self._query = store.$query
             self._showFavoritesOnly = store.$showFavoritesOnly
             self.hasMorePage = store.hasMorePage
         }
@@ -29,6 +27,9 @@ public struct SearchRepositoriesView: View {
     public var body: some View {
         NavigationStackStore(store.scope(state: \.path, action: \.path)) {
             WithViewStore(store, observe: ViewState.init(store:)) { viewStore in
+
+                CustomSearchBarView(store: store.scope(state: \.searchBar, action: \.searchBar))
+                
                 List {
                     Toggle(isOn: viewStore.$showFavoritesOnly) {
                         Text("Favorites Only")
@@ -58,7 +59,6 @@ public struct SearchRepositoriesView: View {
                             .frame(maxWidth: .infinity)
                     }
                 }
-                .searchable(text: viewStore.$query)
             }
         } destination: {
             RepositoryDetailView(store: $0)
@@ -66,15 +66,21 @@ public struct SearchRepositoriesView: View {
     }
 }
 
-#Preview {
-    SearchRepositoriesView(
-        store: .init(initialState: SearchRepositoriesReducer.State()) {
-            SearchRepositoriesReducer()
-                .dependency(
-                    \.githubClient,
-                     .init(searchRepos: { _, _ in .mock() })
-                )
-        }
-    )
-}
-
+//#Preview {
+//    SearchRepositoriesView(
+//        store: .init(initialState: SearchRepositoriesReducer.State()) {
+//            SearchRepositoriesReducer()
+//                .dependency(
+//                    \.githubClient,
+//                     SearchReposResponse.init(searchRepos: { _, _ in .mock() })
+//                )
+//        }
+//    )
+//}
+//
+//#Preview {
+//    SearchRepositoriesView(store: .init(initialState: SearchRepositoriesReducer.State(), reducer: {
+//        SearchRepositoriesReducer()
+//            .dependency(\.githubClient, .previewValue)
+//    }))
+//}

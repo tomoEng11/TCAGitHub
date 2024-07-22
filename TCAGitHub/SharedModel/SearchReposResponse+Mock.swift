@@ -5,7 +5,7 @@
 //  Created by 井本智博 on 2024/07/16.
 //
 
-#if DEBUG
+
 import Foundation
 
 public extension SearchReposResponse {
@@ -69,4 +69,4 @@ public extension SearchReposResponse.Item {
         )
     }
 }
-#endif
+

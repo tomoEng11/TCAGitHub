@@ -15,17 +15,16 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
 
     public struct State: Equatable, Sendable {
         var items = IdentifiedArrayOf<RepositoryItemReducer.State>()
-        @BindingState var query = ""
         @BindingState var showFavoritesOnly = false
         var currentPage = 1
         var loadingState: LoadingState = .refreshing
         var hasMorePage = false
         var path = StackState<RepositoryDetailReducer.State>()
+        var searchBar =  CustomSearchBarFeature.State()
 
         var filteredItems: IdentifiedArrayOf<RepositoryItemReducer.State> {
             showFavoritesOnly ? items.filter { $0.liked } : items
         }
-
 
         public init() {}
     }
@@ -45,6 +44,8 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
         case itemAppeared(id: Int)
         case searchReposResponse(Result<SearchReposResponse, Error>)
         case path(StackAction<RepositoryDetailReducer.State, RepositoryDetailReducer.Action>)
+
+        case searchBar(CustomSearchBarFeature.Action)
     }
 
     // MARK: - Dependencies
@@ -58,23 +59,6 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
         BindingReducer()
         Reduce { state, action in
             switch action {
-
-            case .binding(\.$query):
-                guard !state.query.isEmpty else {
-                    state.hasMorePage = false
-                    state.items.removeAll()
-                    return .cancel(id: CancelId.searchRepos)
-                }
-
-                state.currentPage = 1
-                state.loadingState = .refreshing
-
-                return .run { [query = state.query, page = state.currentPage] send in
-                    await send(.searchReposResponse(Result {
-                        try await githubClient.searchRepos(query: query, page: page)
-                    }))
-                }
-                .debounce(id: CancelId.searchRepos, for: 0.3, scheduler: mainQueue)
 
             case .binding:
                 return .none
@@ -98,11 +82,14 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .itemAppeared(id: id):
+               
                 if state.hasMorePage, state.items.index(id: id) == state.items.count - 1 {
                     state.currentPage += 1
                     state.loadingState = .loadingNext
 
-                    return .run { [query = state.query, page = state.currentPage] send in
+                    let page = state.currentPage
+                    let query = state.searchBar.text
+                    return .run { send in
                         await send(.searchReposResponse(Result {
                             try await githubClient.searchRepos(query: query, page: page)
                         }))
@@ -115,7 +102,7 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .path(.element(id: id, action: .binding(\.$liked))):
-                print(".path(element)\(id)")
+
                 guard let repositoryDetail = state.path[id: id] else { return .none }
                 state.items[id: repositoryDetail.id]?.liked = repositoryDetail.liked
                 return .none
@@ -123,6 +110,27 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
             case .path:
                 return .none
 
+            case .searchBar(.submit):
+
+                guard !state.searchBar.text.isEmpty else {
+                    state.hasMorePage = false
+                    state.items.removeAll()
+                    return .cancel(id: CancelId.searchRepos)
+                }
+
+                state.currentPage = 1
+                state.loadingState = .refreshing
+                let query = state.searchBar.text
+                let page = state.currentPage
+
+                return .run { send in
+                    await send(.searchReposResponse(Result {
+                        try await githubClient.searchRepos(query: query, page: page)
+                    }))
+                }
+
+            case .searchBar(_):
+                return .none
             }
         }
         .forEach(\.items, action: \.items) {
@@ -130,6 +138,10 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
         }
         .forEach(\.path, action: \.path) {
             RepositoryDetailReducer()
+        }
+        
+        Scope(state: \.searchBar, action: \.searchBar) {
+                CustomSearchBarFeature()
         }
     }
 }

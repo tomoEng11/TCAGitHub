@@ -13,6 +13,7 @@ struct TCAGitHubApp: App {
         WindowGroup {
             SearchRepositoriesView(store: .init(initialState: .init()) {
                 SearchRepositoriesReducer()
+                    ._printChanges()
             })
         }
     }

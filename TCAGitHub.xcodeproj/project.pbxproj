@@ -29,6 +29,8 @@
 		BB8285182C46705E0043BF95 /* RepositoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285172C46705E0043BF95 /* RepositoryItemView.swift */; };
 		BB82851A2C4670840043BF95 /* SearchRepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285192C4670840043BF95 /* SearchRepositoriesView.swift */; };
 		BB82851C2C46750A0043BF95 /* Confidential.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82851B2C46750A0043BF95 /* Confidential.swift */; };
+		BB8285202C47BF0A0043BF95 /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */; };
+		BB8285222C47BFF20043BF95 /* CustomSearchBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		BB8285172C46705E0043BF95 /* RepositoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItemView.swift; sourceTree = "<group>"; };
 		BB8285192C4670840043BF95 /* SearchRepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesView.swift; sourceTree = "<group>"; };
 		BB82851B2C46750A0043BF95 /* Confidential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidential.swift; sourceTree = "<group>"; };
+		BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
+		BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,8 @@
 				BB8285192C4670840043BF95 /* SearchRepositoriesView.swift */,
 				BB8285112C466E4F0043BF95 /* RepositoryItemReducer.swift */,
 				BB8285172C46705E0043BF95 /* RepositoryItemView.swift */,
+				BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */,
+				BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */,
 			);
 			path = SearchRepositoriesFeature;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				BB8285122C466E4F0043BF95 /* RepositoryItemReducer.swift in Sources */,
 				BB8285162C466F5F0043BF95 /* RepositoryDetailView.swift in Sources */,
 				BB8285182C46705E0043BF95 /* RepositoryItemView.swift in Sources */,
+				BB8285202C47BF0A0043BF95 /* CustomSearchBarView.swift in Sources */,
 				BB8284C12C465F270043BF95 /* TCAGitHubApp.swift in Sources */,
 				BB8285142C466E8B0043BF95 /* RepositoryDetailReducer.swift in Sources */,
 				BB82850E2C466DBF0043BF95 /* SearchReposRequest.swift in Sources */,
@@ -261,6 +268,7 @@
 				BB8285082C466C800043BF95 /* GithubClient.swift in Sources */,
 				BB8285102C466E1F0043BF95 /* SearchRepositoriesReducer.swift in Sources */,
 				BB8284FB2C466A210043BF95 /* ApiClient.swift in Sources */,
+				BB8285222C47BFF20043BF95 /* CustomSearchBarFeature.swift in Sources */,
 				BB82851A2C4670840043BF95 /* SearchRepositoriesView.swift in Sources */,
 				BB8285012C466AA20043BF95 /* Repository.swift in Sources */,
 			);
