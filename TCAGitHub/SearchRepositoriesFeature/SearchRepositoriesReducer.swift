@@ -82,11 +82,14 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .itemAppeared(id: id):
+               
                 if state.hasMorePage, state.items.index(id: id) == state.items.count - 1 {
                     state.currentPage += 1
                     state.loadingState = .loadingNext
 
-                    return .run { [query = state.searchBar.text, page = state.currentPage] send in
+                    let page = state.currentPage
+                    let query = state.searchBar.text
+                    return .run { send in
                         await send(.searchReposResponse(Result {
                             try await githubClient.searchRepos(query: query, page: page)
                         }))
@@ -99,7 +102,7 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .path(.element(id: id, action: .binding(\.$liked))):
-                print(".path(element)\(id)")
+
                 guard let repositoryDetail = state.path[id: id] else { return .none }
                 state.items[id: repositoryDetail.id]?.liked = repositoryDetail.liked
                 return .none
@@ -117,8 +120,10 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
 
                 state.currentPage = 1
                 state.loadingState = .refreshing
+                let query = state.searchBar.text
+                let page = state.currentPage
 
-                return .run { [query = state.searchBar.text, page = state.currentPage] send in
+                return .run { send in
                     await send(.searchReposResponse(Result {
                         try await githubClient.searchRepos(query: query, page: page)
                     }))

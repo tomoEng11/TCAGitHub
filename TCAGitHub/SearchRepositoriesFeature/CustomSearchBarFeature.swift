@@ -39,7 +39,6 @@ public struct CustomSearchBarFeature: Sendable {
             case .submit:
                 return .none
             case .didTapCancelButton:
-                state.text = ""
                 return .none
             }
         }
