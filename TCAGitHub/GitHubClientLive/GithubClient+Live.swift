@@ -3,7 +3,6 @@
 //  TCAGitHub
 //
 //  Created by 井本智博 on 2024/07/16.
-//
 
 import Dependencies
 

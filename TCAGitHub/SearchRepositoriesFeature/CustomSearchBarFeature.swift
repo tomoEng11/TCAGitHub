@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 @Reducer
 public struct CustomSearchBarFeature: Sendable {
-    
+
     public struct State: Equatable, Sendable {
       @BindingState var text: String = ""
     }
