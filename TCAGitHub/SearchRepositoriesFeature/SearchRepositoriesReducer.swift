@@ -38,29 +38,28 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
     private enum CancelId { case searchRepos }
 
     // MARK: - Action
-    public enum Action: BindableAction, Sendable {
-        case binding(BindingAction<State>)
-        case items(IdentifiedActionOf<RepositoryItemReducer>)
-        case itemAppeared(id: Int)
-        case searchReposResponse(Result<SearchReposResponse, Error>)
-        case path(StackAction<RepositoryDetailReducer.State, RepositoryDetailReducer.Action>)
+  public enum Action: BindableAction, Sendable {
+      case binding(BindingAction<State>)
+      case items(IdentifiedActionOf<RepositoryItemReducer>)
+      case itemAppeared(id: Int)
+      case searchReposResponse(Result<SearchReposResponse, Error>)
+      case path(StackAction<RepositoryDetailReducer.State, RepositoryDetailReducer.Action>)
 
-        case searchBar(CustomSearchBarFeature.Action)
-    }
+      case searchBar(CustomSearchBarFeature.Action)
+  }
 
-    // MARK: - Dependencies
-    @Dependency(\.githubClient) var githubClient
-    @Dependency(\.mainQueue) var mainQueue
+  // MARK: - Dependencies
+  @Dependency(\.githubClient) var githubClient
+  @Dependency(\.mainQueue) var mainQueue
 
-    public init() {}
+  public init() {}
 
-    // MARK: - Reducer
-    public var body: some ReducerOf<Self> {
-        BindingReducer()
-        Reduce { state, action in
-            switch action {
-
-            case .binding:
+  // MARK: - Reducer
+  public var body: some ReducerOf<Self> {
+      BindingReducer()
+      Reduce { state, action in
+          switch action {
+          case .binding:
                 return .none
 
             case let .searchReposResponse(.success(response)):
@@ -82,7 +81,7 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .itemAppeared(id: id):
-               
+
                 if state.hasMorePage, state.items.index(id: id) == state.items.count - 1 {
                     state.currentPage += 1
                     state.loadingState = .loadingNext

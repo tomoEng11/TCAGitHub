@@ -29,7 +29,7 @@ public struct SearchRepositoriesView: View {
             WithViewStore(store, observe: ViewState.init(store:)) { viewStore in
 
                 CustomSearchBarView(store: store.scope(state: \.searchBar, action: \.searchBar))
-                
+
                 List {
                     Toggle(isOn: viewStore.$showFavoritesOnly) {
                         Text("Favorites Only")

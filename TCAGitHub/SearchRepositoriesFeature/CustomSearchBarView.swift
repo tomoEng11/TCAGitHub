@@ -1,9 +1,9 @@
-////
-////  CustomSearchBarView.swift
-////  TCAGitHub
-////
-////  Created by 井本智博 on 2024/07/17.
-////
+//
+//  CustomSearchBarView.swift
+//  TCAGitHub
+//
+//  Created by 井本智博 on 2024/07/17.
+//
 
 import SwiftUI
 import ComposableArchitecture

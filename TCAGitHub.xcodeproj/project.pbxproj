@@ -10,8 +10,6 @@
 		BB8284C12C465F270043BF95 /* TCAGitHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8284C02C465F270043BF95 /* TCAGitHubApp.swift */; };
 		BB8284C52C465F280043BF95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8284C42C465F280043BF95 /* Assets.xcassets */; };
 		BB8284C82C465F280043BF95 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB8284C72C465F280043BF95 /* Preview Assets.xcassets */; };
-		BB8284D02C465F360043BF95 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BB8284CF2C465F360043BF95 /* ComposableArchitecture */; };
-		BB8284F92C4662710043BF95 /* APIKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB8284F82C4662710043BF95 /* APIKit */; };
 		BB8284FB2C466A210043BF95 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8284FA2C466A210043BF95 /* ApiClient.swift */; };
 		BB8284FD2C466A480043BF95 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8284FC2C466A480043BF95 /* BaseRequest.swift */; };
 		BB8284FF2C466A770043BF95 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8284FE2C466A770043BF95 /* ApiError.swift */; };
@@ -31,6 +29,12 @@
 		BB82851C2C46750A0043BF95 /* Confidential.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82851B2C46750A0043BF95 /* Confidential.swift */; };
 		BB8285202C47BF0A0043BF95 /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */; };
 		BB8285222C47BFF20043BF95 /* CustomSearchBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */; };
+		BB8C83F82C4FA45600EB31BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83F72C4FA45600EB31BA /* ContentView.swift */; };
+		BB8C83FC2C4FA97C00EB31BA /* SearchFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FB2C4FA97C00EB31BA /* SearchFavoriteView.swift */; };
+		BB8C84002C4FAAAA00EB31BA /* SearchLikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */; };
+		BB8C84022C4FAAF000EB31BA /* SearchArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */; };
+		BB953FE82C4E919C003EC401 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BB953FE72C4E919C003EC401 /* ComposableArchitecture */; };
+		BB953FEA2C4E9299003EC401 /* APIKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB953FE92C4E9299003EC401 /* APIKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +61,10 @@
 		BB82851B2C46750A0043BF95 /* Confidential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confidential.swift; sourceTree = "<group>"; };
 		BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarFeature.swift; sourceTree = "<group>"; };
+		BB8C83F72C4FA45600EB31BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB8C83FB2C4FA97C00EB31BA /* SearchFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoriteView.swift; sourceTree = "<group>"; };
+		BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLikesView.swift; sourceTree = "<group>"; };
+		BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticlesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB8284F92C4662710043BF95 /* APIKit in Frameworks */,
-				BB8284D02C465F360043BF95 /* ComposableArchitecture in Frameworks */,
+				BB953FEA2C4E9299003EC401 /* APIKit in Frameworks */,
+				BB953FE82C4E919C003EC401 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				BB8284C02C465F270043BF95 /* TCAGitHubApp.swift */,
+				BB8C83F72C4FA45600EB31BA /* ContentView.swift */,
+				BB8C83FE2C4FAA7300EB31BA /* SearchLikesFeature */,
+				BB8C83FD2C4FAA5E00EB31BA /* SearchArticlesFeature */,
+				BB8C83FA2C4FA95500EB31BA /* SearchFavoritesFeature */,
 				BB8284E52C465FBE0043BF95 /* SearchRepositoriesFeature */,
 				BB8284E02C465FAB0043BF95 /* RepositoryDetailFeature */,
 				BB8284D92C465F950043BF95 /* GitHubClientLive */,
@@ -173,6 +185,30 @@
 			path = SharedModel;
 			sourceTree = "<group>";
 		};
+		BB8C83FA2C4FA95500EB31BA /* SearchFavoritesFeature */ = {
+			isa = PBXGroup;
+			children = (
+				BB8C83FB2C4FA97C00EB31BA /* SearchFavoriteView.swift */,
+			);
+			path = SearchFavoritesFeature;
+			sourceTree = "<group>";
+		};
+		BB8C83FD2C4FAA5E00EB31BA /* SearchArticlesFeature */ = {
+			isa = PBXGroup;
+			children = (
+				BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */,
+			);
+			path = SearchArticlesFeature;
+			sourceTree = "<group>";
+		};
+		BB8C83FE2C4FAA7300EB31BA /* SearchLikesFeature */ = {
+			isa = PBXGroup;
+			children = (
+				BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */,
+			);
+			path = SearchLikesFeature;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -190,8 +226,8 @@
 			);
 			name = TCAGitHub;
 			packageProductDependencies = (
-				BB8284CF2C465F360043BF95 /* ComposableArchitecture */,
-				BB8284F82C4662710043BF95 /* APIKit */,
+				BB953FE72C4E919C003EC401 /* ComposableArchitecture */,
+				BB953FE92C4E9299003EC401 /* APIKit */,
 			);
 			productName = TCAGitHub;
 			productReference = BB8284BD2C465F270043BF95 /* TCAGitHub.app */;
@@ -251,9 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB8C83FC2C4FA97C00EB31BA /* SearchFavoriteView.swift in Sources */,
 				BB8284FD2C466A480043BF95 /* BaseRequest.swift in Sources */,
 				BB8285122C466E4F0043BF95 /* RepositoryItemReducer.swift in Sources */,
+				BB8C83F82C4FA45600EB31BA /* ContentView.swift in Sources */,
 				BB8285162C466F5F0043BF95 /* RepositoryDetailView.swift in Sources */,
+				BB8C84002C4FAAAA00EB31BA /* SearchLikesView.swift in Sources */,
 				BB8285182C46705E0043BF95 /* RepositoryItemView.swift in Sources */,
 				BB8285202C47BF0A0043BF95 /* CustomSearchBarView.swift in Sources */,
 				BB8284C12C465F270043BF95 /* TCAGitHubApp.swift in Sources */,
@@ -267,6 +306,7 @@
 				BB82850C2C466DA70043BF95 /* GithubRequest.swift in Sources */,
 				BB8285082C466C800043BF95 /* GithubClient.swift in Sources */,
 				BB8285102C466E1F0043BF95 /* SearchRepositoriesReducer.swift in Sources */,
+				BB8C84022C4FAAF000EB31BA /* SearchArticlesView.swift in Sources */,
 				BB8284FB2C466A210043BF95 /* ApiClient.swift in Sources */,
 				BB8285222C47BFF20043BF95 /* CustomSearchBarFeature.swift in Sources */,
 				BB82851A2C4670840043BF95 /* SearchRepositoriesView.swift in Sources */,
@@ -497,12 +537,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BB8284CF2C465F360043BF95 /* ComposableArchitecture */ = {
+		BB953FE72C4E919C003EC401 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BB8284CE2C465F360043BF95 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		BB8284F82C4662710043BF95 /* APIKit */ = {
+		BB953FE92C4E9299003EC401 /* APIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BB8284F72C4662710043BF95 /* XCRemoteSwiftPackageReference "APIKit" */;
 			productName = APIKit;
