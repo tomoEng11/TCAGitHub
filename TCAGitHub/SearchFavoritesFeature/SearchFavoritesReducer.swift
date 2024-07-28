@@ -35,7 +35,7 @@ public struct SearchFavoritesReducer: Sendable {
 
     // MARK: - Action
     public enum Action:BindableAction, Sendable {
-        case searchFavoritesResponse(Result<[SearchFavoritesResponseItem], Error>)
+        case searchFavoritesResponse(Result<SearchFavoritesResponse, Error>)
         case viewDidLoad
         case binding(BindingAction<State>)
         case path(StackAction<RepositoryDetailReducer.State, RepositoryDetailReducer.Action>)

@@ -8,7 +8,7 @@
 import APIKit
 
 struct SearchFavoritesRequest: GithubRequest {
-    typealias Response = [SearchFavoritesResponseItem]
+    typealias Response = SearchFavoritesResponse
     let method = APIKit.HTTPMethod.get
     let path = "/users/tomoEng11/starred"
     let queryParameters: [String: Any]?

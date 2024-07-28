@@ -7,17 +7,10 @@
 
 import Foundation
 
-public struct SearchFavoritesResponse: Sendable, Decodable, Equatable {
-    public let items: [SearchFavoritesResponseItem]
-
-    public init(response: [SearchFavoritesResponseItem]) {
-        self.items = response
-    }
-}
-
-
+public typealias SearchFavoritesResponse = [SearchFavoritesResponseItem]
 
 public struct SearchFavoritesResponseItem: Sendable, Decodable, Equatable {
+
     public let id: Int
     public let name: String
     public let fullName: String

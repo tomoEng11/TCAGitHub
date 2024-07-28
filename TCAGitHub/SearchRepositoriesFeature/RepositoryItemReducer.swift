@@ -48,7 +48,7 @@ where Element == RepositoryItemReducer.State, ID == Int {
 
 extension IdentifiedArrayOf
 where Element == RepositoryItemReducer.State, ID == Int {
-    init(response: [SearchFavoritesResponseItem]) {
+    init(response: SearchFavoritesResponse) {
         self = IdentifiedArrayOf(uniqueElements: response.map { .make(from: $0) })
     }
 }
