@@ -19,7 +19,9 @@ struct ContentView: View {
             }
 
             
-            SearchFavoriteView()
+            SearchFavoritesView(store: .init(initialState: SearchFavoritesReducer.State(), reducer: {
+                SearchFavoritesReducer()
+            }))
             .tabItem {
                 Image(systemName: "heart.circle")
                 Text("GF")

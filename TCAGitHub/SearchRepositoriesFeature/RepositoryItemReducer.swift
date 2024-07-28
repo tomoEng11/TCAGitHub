@@ -20,6 +20,10 @@ public struct RepositoryItemReducer: Reducer, Sendable {
         static func make(from item: SearchReposResponse.Item) -> Self {
             .init(repository: .init(from: item))
         }
+
+        static func make(from item: SearchFavoritesResponseItem) -> Self {
+            .init(repository: .init(from: item))
+        }
     }
 
     // MARK: - Action
@@ -42,3 +46,9 @@ where Element == RepositoryItemReducer.State, ID == Int {
     }
 }
 
+extension IdentifiedArrayOf
+where Element == RepositoryItemReducer.State, ID == Int {
+    init(response: [SearchFavoritesResponseItem]) {
+        self = IdentifiedArrayOf(uniqueElements: response.map { .make(from: $0) })
+    }
+}
