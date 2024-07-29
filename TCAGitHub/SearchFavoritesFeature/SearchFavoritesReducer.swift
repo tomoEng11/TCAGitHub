@@ -17,7 +17,7 @@ public struct SearchFavoritesReducer: Sendable {
         @BindingState var showFavoritesOnly = false
         var items = IdentifiedArrayOf<RepositoryItemReducer.State>()
         var currentPage = 1
-        var hasMorePage = true
+        var isLoading = false
         var loadingState: LoadingState = .refreshing
         var path = StackState<RepositoryDetailReducer.State>()
         var filteredItems: IdentifiedArrayOf<RepositoryItemReducer.State> {
@@ -59,17 +59,20 @@ public struct SearchFavoritesReducer: Sendable {
 
             case let .searchFavoritesResponse(.success(response)):
                 switch state.loadingState {
+                    
                 case .refreshing:
                     state.items = IdentifiedArrayOf<RepositoryItemReducer.State>(response: response)
-                   
+                    state.isLoading = false
+
                 case .loadingNext:
                     let newItems = IdentifiedArrayOf<RepositoryItemReducer.State>(response: response)
                     state.items.append(contentsOf: newItems)
+                    state.isLoading = false
+
                 case .none:
+                    state.isLoading = false
                     break
                 }
-
-//                state.hasMorePage = response.totalCount > state.items.count
                 state.loadingState = .none
                 return .none
 
@@ -78,6 +81,7 @@ public struct SearchFavoritesReducer: Sendable {
                 return .none
 
             case .viewDidLoad:
+                state.isLoading = true
                 let page = state.currentPage
                 return .run { send in
                     await send(.searchFavoritesResponse(Result {
@@ -91,7 +95,8 @@ public struct SearchFavoritesReducer: Sendable {
                 return .none
 
             case let .itemAppeared(id: id):
-                if state.hasMorePage, state.items.index(id: id) == state.items.count - 1 {
+                state.isLoading = true
+                if state.items.index(id: id) == state.items.count - 1 {
                     state.currentPage += 1
                     state.loadingState = .loadingNext
 
@@ -101,6 +106,7 @@ public struct SearchFavoritesReducer: Sendable {
                         await send(.searchFavoritesResponse(Result {
                             try await githubClient.searchFavorites(page: page)
                         }))
+
                     }
                 } else {
                     return .none

@@ -13,11 +13,11 @@ public struct SearchFavoritesView: View {
     
     struct ViewState: Equatable {
         @BindingViewState var showFavoritesOnly: Bool
-        let hasMorePage: Bool
+        let isLoading: Bool
 
         init(store: BindingViewStore<SearchFavoritesReducer.State>) {
             self._showFavoritesOnly = store.$showFavoritesOnly
-            self.hasMorePage = store.hasMorePage
+            self.isLoading = store.isLoading
         }
     }
 
@@ -53,7 +53,7 @@ public struct SearchFavoritesView: View {
                         }
                     }
 
-                    if viewStore.hasMorePage {
+                    if viewStore.isLoading {
                         ProgressView()
                             .frame(maxWidth: .infinity)
                     }

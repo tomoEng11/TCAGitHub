@@ -65,22 +65,3 @@ public struct SearchRepositoriesView: View {
         }
     }
 }
-
-//#Preview {
-//    SearchRepositoriesView(
-//        store: .init(initialState: SearchRepositoriesReducer.State()) {
-//            SearchRepositoriesReducer()
-//                .dependency(
-//                    \.githubClient,
-//                     SearchReposResponse.init(searchRepos: { _, _ in .mock() })
-//                )
-//        }
-//    )
-//}
-//
-//#Preview {
-//    SearchRepositoriesView(store: .init(initialState: SearchRepositoriesReducer.State(), reducer: {
-//        SearchRepositoriesReducer()
-//            .dependency(\.githubClient, .previewValue)
-//    }))
-//}
