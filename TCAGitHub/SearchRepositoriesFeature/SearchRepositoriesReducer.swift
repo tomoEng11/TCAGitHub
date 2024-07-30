@@ -81,7 +81,6 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .itemAppeared(id: id):
-
                 if state.hasMorePage, state.items.index(id: id) == state.items.count - 1 {
                     state.currentPage += 1
                     state.loadingState = .loadingNext
@@ -101,7 +100,6 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case let .path(.element(id: id, action: .binding(\.$liked))):
-
                 guard let repositoryDetail = state.path[id: id] else { return .none }
                 state.items[id: repositoryDetail.id]?.liked = repositoryDetail.liked
                 return .none
@@ -110,7 +108,6 @@ public struct SearchRepositoriesReducer: Reducer, Sendable {
                 return .none
 
             case .searchBar(.submit):
-
                 guard !state.searchBar.text.isEmpty else {
                     state.hasMorePage = false
                     state.items.removeAll()

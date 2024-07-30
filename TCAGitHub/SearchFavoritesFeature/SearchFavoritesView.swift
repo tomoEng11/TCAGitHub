@@ -1,34 +1,33 @@
 //
-//  SearchRepositoriesView.swift
+//  SearchFavoritesView.swift
 //  TCAGitHub
 //
-//  Created by 井本智博 on 2024/07/16.
+//  Created by 井本智博 on 2024/07/23.
 //
 
 import SwiftUI
 import ComposableArchitecture
 
-public struct SearchRepositoriesView: View {
-    let store: StoreOf<SearchRepositoriesReducer>
+public struct SearchFavoritesView: View {
+    let store: StoreOf<SearchFavoritesReducer>
+    
     struct ViewState: Equatable {
         @BindingViewState var showFavoritesOnly: Bool
-        let hasMorePage: Bool
+        let isLoading: Bool
 
-        init(store: BindingViewStore<SearchRepositoriesReducer.State>) {
+        init(store: BindingViewStore<SearchFavoritesReducer.State>) {
             self._showFavoritesOnly = store.$showFavoritesOnly
-            self.hasMorePage = store.hasMorePage
+            self.isLoading = store.isLoading
         }
     }
 
-    public init(store: StoreOf<SearchRepositoriesReducer>) {
+    public init(store: StoreOf<SearchFavoritesReducer>) {
         self.store = store
     }
 
     public var body: some View {
         NavigationStackStore(store.scope(state: \.path, action: \.path)) {
             WithViewStore(store, observe: ViewState.init(store:)) { viewStore in
-
-                CustomSearchBarView(store: store.scope(state: \.searchBar, action: \.searchBar))
 
                 List {
                     Toggle(isOn: viewStore.$showFavoritesOnly) {
@@ -47,17 +46,17 @@ public struct SearchRepositoriesView: View {
                                 )
                             ) {
                                 RepositoryItemView(store: itemStore)
-                                    .onAppear {
-                                        viewStore.send(.itemAppeared(id: itemStore.withState(\.id)))
-                                    }
                             }
                         }
                     }
 
-                    if viewStore.hasMorePage {
+                    if viewStore.isLoading {
                         ProgressView()
                             .frame(maxWidth: .infinity)
                     }
+                }
+                .onAppear {
+                    viewStore.send(.viewDidLoad)
                 }
             }
         } destination: {
@@ -65,3 +64,9 @@ public struct SearchRepositoriesView: View {
         }
     }
 }
+//
+//#Preview {
+//    SearchFavoriteView(store: Store(initialState: SearchFavoritesReducer.State(), reducer: {
+//        SearchFavoritesReducer()
+//    }))
+//}

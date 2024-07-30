@@ -30,11 +30,14 @@
 		BB8285202C47BF0A0043BF95 /* CustomSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */; };
 		BB8285222C47BFF20043BF95 /* CustomSearchBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */; };
 		BB8C83F82C4FA45600EB31BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83F72C4FA45600EB31BA /* ContentView.swift */; };
-		BB8C83FC2C4FA97C00EB31BA /* SearchFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FB2C4FA97C00EB31BA /* SearchFavoriteView.swift */; };
+		BB8C83FC2C4FA97C00EB31BA /* SearchFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FB2C4FA97C00EB31BA /* SearchFavoritesView.swift */; };
 		BB8C84002C4FAAAA00EB31BA /* SearchLikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */; };
 		BB8C84022C4FAAF000EB31BA /* SearchArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */; };
 		BB953FE82C4E919C003EC401 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BB953FE72C4E919C003EC401 /* ComposableArchitecture */; };
 		BB953FEA2C4E9299003EC401 /* APIKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB953FE92C4E9299003EC401 /* APIKit */; };
+		BBB955212C52485D001EFF92 /* SearchFavoritesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB955202C52485D001EFF92 /* SearchFavoritesReducer.swift */; };
+		BBB955232C527DE6001EFF92 /* SearchFavoritesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB955222C527DE6001EFF92 /* SearchFavoritesRequest.swift */; };
+		BBB955252C527E7B001EFF92 /* SearchFavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB955242C527E7B001EFF92 /* SearchFavoritesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,9 +65,12 @@
 		BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarView.swift; sourceTree = "<group>"; };
 		BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarFeature.swift; sourceTree = "<group>"; };
 		BB8C83F72C4FA45600EB31BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BB8C83FB2C4FA97C00EB31BA /* SearchFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoriteView.swift; sourceTree = "<group>"; };
+		BB8C83FB2C4FA97C00EB31BA /* SearchFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesView.swift; sourceTree = "<group>"; };
 		BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLikesView.swift; sourceTree = "<group>"; };
 		BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticlesView.swift; sourceTree = "<group>"; };
+		BBB955202C52485D001EFF92 /* SearchFavoritesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesReducer.swift; sourceTree = "<group>"; };
+		BBB955222C527DE6001EFF92 /* SearchFavoritesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesRequest.swift; sourceTree = "<group>"; };
+		BBB955242C527E7B001EFF92 /* SearchFavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 				BB82851B2C46750A0043BF95 /* Confidential.swift */,
 				BB82850B2C466DA70043BF95 /* GithubRequest.swift */,
 				BB82850D2C466DBF0043BF95 /* SearchReposRequest.swift */,
+				BBB955222C527DE6001EFF92 /* SearchFavoritesRequest.swift */,
 			);
 			path = GitHubClientLive;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 				BB8284FE2C466A770043BF95 /* ApiError.swift */,
 				BB8285002C466AA20043BF95 /* Repository.swift */,
 				BB8285022C466AC00043BF95 /* SearchReposResponse.swift */,
+				BBB955242C527E7B001EFF92 /* SearchFavoritesResponse.swift */,
 				BB8285042C466ADA0043BF95 /* SearchReposResponse+Mock.swift */,
 			);
 			path = SharedModel;
@@ -188,7 +196,8 @@
 		BB8C83FA2C4FA95500EB31BA /* SearchFavoritesFeature */ = {
 			isa = PBXGroup;
 			children = (
-				BB8C83FB2C4FA97C00EB31BA /* SearchFavoriteView.swift */,
+				BB8C83FB2C4FA97C00EB31BA /* SearchFavoritesView.swift */,
+				BBB955202C52485D001EFF92 /* SearchFavoritesReducer.swift */,
 			);
 			path = SearchFavoritesFeature;
 			sourceTree = "<group>";
@@ -287,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB8C83FC2C4FA97C00EB31BA /* SearchFavoriteView.swift in Sources */,
+				BB8C83FC2C4FA97C00EB31BA /* SearchFavoritesView.swift in Sources */,
 				BB8284FD2C466A480043BF95 /* BaseRequest.swift in Sources */,
 				BB8285122C466E4F0043BF95 /* RepositoryItemReducer.swift in Sources */,
 				BB8C83F82C4FA45600EB31BA /* ContentView.swift in Sources */,
@@ -298,12 +307,15 @@
 				BB8284C12C465F270043BF95 /* TCAGitHubApp.swift in Sources */,
 				BB8285142C466E8B0043BF95 /* RepositoryDetailReducer.swift in Sources */,
 				BB82850E2C466DBF0043BF95 /* SearchReposRequest.swift in Sources */,
+				BBB955232C527DE6001EFF92 /* SearchFavoritesRequest.swift in Sources */,
 				BB82851C2C46750A0043BF95 /* Confidential.swift in Sources */,
 				BB8285032C466AC00043BF95 /* SearchReposResponse.swift in Sources */,
 				BB8285052C466ADA0043BF95 /* SearchReposResponse+Mock.swift in Sources */,
 				BB82850A2C466D5C0043BF95 /* GithubClient+Live.swift in Sources */,
 				BB8284FF2C466A770043BF95 /* ApiError.swift in Sources */,
 				BB82850C2C466DA70043BF95 /* GithubRequest.swift in Sources */,
+				BBB955252C527E7B001EFF92 /* SearchFavoritesResponse.swift in Sources */,
+				BBB955212C52485D001EFF92 /* SearchFavoritesReducer.swift in Sources */,
 				BB8285082C466C800043BF95 /* GithubClient.swift in Sources */,
 				BB8285102C466E1F0043BF95 /* SearchRepositoriesReducer.swift in Sources */,
 				BB8C84022C4FAAF000EB31BA /* SearchArticlesView.swift in Sources */,
