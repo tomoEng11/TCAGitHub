@@ -46,9 +46,6 @@ public struct SearchFavoritesView: View {
                                 )
                             ) {
                                 RepositoryItemView(store: itemStore)
-                                    .onAppear {
-                                       viewStore.send(.itemAppeared(id: itemStore.withState(\.id)))
-                                    }
                             }
                         }
                     }

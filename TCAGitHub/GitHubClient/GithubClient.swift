@@ -10,7 +10,7 @@ import DependenciesMacros
 @DependencyClient
 public struct GithubClient: Sendable {
     public var searchRepos: @Sendable (_ query: String, _ page: Int) async throws -> SearchReposResponse
-    public var searchFavorites: @Sendable (_ page: Int) async throws -> [SearchFavoritesResponseItem]
+    public var searchFavorites: @Sendable () async throws -> [SearchFavoritesResponseItem]
 }
 
 extension GithubClient: TestDependencyKey {

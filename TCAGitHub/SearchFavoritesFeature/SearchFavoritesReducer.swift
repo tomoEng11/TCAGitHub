@@ -16,9 +16,7 @@ public struct SearchFavoritesReducer: Sendable {
     public struct State: Equatable, Sendable {
         @BindingState var showFavoritesOnly = false
         var items = IdentifiedArrayOf<RepositoryItemReducer.State>()
-        var currentPage = 1
         var isLoading = false
-        var loadingState: LoadingState = .refreshing
         var path = StackState<RepositoryDetailReducer.State>()
         var filteredItems: IdentifiedArrayOf<RepositoryItemReducer.State> {
             showFavoritesOnly ? items.filter { $0.liked } : items
@@ -27,11 +25,6 @@ public struct SearchFavoritesReducer: Sendable {
         public init() {}
     }
 
-    public enum LoadingState: Equatable, Sendable {
-        case refreshing
-        case loadingNext
-        case none
-    }
 
     // MARK: - Action
     public enum Action:BindableAction, Sendable {
@@ -40,7 +33,6 @@ public struct SearchFavoritesReducer: Sendable {
         case binding(BindingAction<State>)
         case path(StackAction<RepositoryDetailReducer.State, RepositoryDetailReducer.Action>)
         case items(IdentifiedActionOf<RepositoryItemReducer>)
-        case itemAppeared(id: Int)
     }
 
     // MARK: - Dependencies
@@ -58,22 +50,8 @@ public struct SearchFavoritesReducer: Sendable {
                 return .none
 
             case let .searchFavoritesResponse(.success(response)):
-                switch state.loadingState {
-                    
-                case .refreshing:
-                    state.items = IdentifiedArrayOf<RepositoryItemReducer.State>(response: response)
-                    state.isLoading = false
-
-                case .loadingNext:
-                    let newItems = IdentifiedArrayOf<RepositoryItemReducer.State>(response: response)
-                    state.items.append(contentsOf: newItems)
-                    state.isLoading = false
-
-                case .none:
-                    state.isLoading = false
-                    break
-                }
-                state.loadingState = .none
+                state.items = IdentifiedArrayOf<RepositoryItemReducer.State>(response: response)
+                state.isLoading = false
                 return .none
 
 
@@ -82,10 +60,9 @@ public struct SearchFavoritesReducer: Sendable {
 
             case .viewDidLoad:
                 state.isLoading = true
-                let page = state.currentPage
                 return .run { send in
                     await send(.searchFavoritesResponse(Result {
-                        try await githubClient.searchFavorites(page: page)
+                        try await githubClient.searchFavorites()
                     }))
                 }
 
@@ -93,24 +70,6 @@ public struct SearchFavoritesReducer: Sendable {
                 guard let repositoryDetail = state.path[id: id] else { return .none }
                 state.items[id: repositoryDetail.id]?.liked = repositoryDetail.liked
                 return .none
-
-            case let .itemAppeared(id: id):
-                state.isLoading = true
-                if state.items.index(id: id) == state.items.count - 1 {
-                    state.currentPage += 1
-                    state.loadingState = .loadingNext
-
-                    let page = state.currentPage
-
-                    return .run { send in
-                        await send(.searchFavoritesResponse(Result {
-                            try await githubClient.searchFavorites(page: page)
-                        }))
-
-                    }
-                } else {
-                    return .none
-                }
 
             case .path:
                 return .none

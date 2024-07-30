@@ -13,8 +13,8 @@ extension GithubClient: DependencyKey {
         .init(
             searchRepos: { query, page in
                 try await apiClient.send(request: SearchReposRequest(query: query, page: page))
-            }, searchFavorites: { page in
-                try await apiClient.send(request: SearchFavoritesRequest(page: page))
+            }, searchFavorites: { 
+                try await apiClient.send(request: SearchFavoritesRequest())
             }
         )
     }
