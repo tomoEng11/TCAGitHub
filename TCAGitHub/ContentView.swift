@@ -27,7 +27,9 @@ struct ContentView: View {
                 Text("GF")
             }
 
-            SearchArticlesView()
+            SearchArticlesView(store: .init(initialState: SearchArticlesReducer.State(), reducer: {
+                SearchArticlesReducer()
+            }))
             .tabItem {
                 Image(systemName: "person.fill.questionmark")
                 Text("Qiita")
