@@ -19,7 +19,7 @@ extension GithubRequest {
         var params: [String: String] = [:]
         params["Accept"] = "application/vnd.github+json"
         //tokenを差し替えると使用可能
-        params["Authorization"] = "Bearer \(Confidential.token)"
+        params["Authorization"] = "Bearer \(Confidential.githubToken)"
 
         return params
     }
