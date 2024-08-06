@@ -122,6 +122,12 @@ public struct SearchArticlesReducer: Sendable {
                 return .none
             }
         }
+        .forEach(\.items, action: \.items) {
+            ArticleItemReducer()
+        }
+        .forEach(\.path, action: \.path) {
+            ArticleDetailReducer()
+        }
 
         Scope(state: \.searchBar, action: \.searchBar) {
                 CustomSearchBarFeature()
