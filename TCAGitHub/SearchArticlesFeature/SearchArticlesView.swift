@@ -47,9 +47,9 @@ struct SearchArticlesView: View {
                                 )
                             ) {
                                 ArticleItemView(store: itemStore)
-//                                    .onAppear {
-//                                        viewStore.send(.itemAppeared)
-//                                    }
+                                    .onAppear {
+                                        viewStore.send(.itemAppeared)
+                                    }
                             }
                         }
                     }

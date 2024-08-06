@@ -9,7 +9,6 @@ import Foundation
 import ComposableArchitecture
 import Dependencies
 
-
 @Reducer
 public struct SearchArticlesReducer: Sendable {
     public struct State: Equatable, Sendable {
@@ -35,7 +34,6 @@ public struct SearchArticlesReducer: Sendable {
     }
 
     public enum Action: BindableAction, Sendable {
-        //TODO INT受け取れる実装に変更
         case itemAppeared
         case items(IdentifiedActionOf<ArticleItemReducer>)
         case binding(BindingAction<State>)
@@ -49,7 +47,6 @@ public struct SearchArticlesReducer: Sendable {
     @Dependency(\.mainQueue) var mainQueue
 
     private enum CancelId { case searchRepos }
-
 
     public var body: some ReducerOf<Self> {
         BindingReducer()
@@ -72,7 +69,6 @@ public struct SearchArticlesReducer: Sendable {
 
 //                state.hasMorePage = response.totalCount > state.items.count
                 state.loadingState = .none
-
                 return .none
 
             case let .searchArticlesResponse(.failure(error)):
@@ -101,7 +97,6 @@ public struct SearchArticlesReducer: Sendable {
             case .searchBar(_):
                 return .none
 
-
             case let .path(.element(id: id, action: .binding(\.$liked))):
                 guard let articleDetail = state.path[id: id] else { return .none }
                 state.items[id: articleDetail.id]?.liked = articleDetail.liked
@@ -111,11 +106,25 @@ public struct SearchArticlesReducer: Sendable {
                 return .none
 
             case .itemAppeared:
-                return .none
+                state.currentPage += 1
+                state.loadingState = .loadingNext
+
+                let page = state.currentPage
+                let query = state.searchBar.text
+
+                return .run { send in
+                    await send(.searchArticlesResponse(Result {
+                        try await qiitaClient.searchRepos(query: query, page: page)
+                    }))
+                }
 
             case .items:
                 return .none
             }
+        }
+
+        Scope(state: \.searchBar, action: \.searchBar) {
+                CustomSearchBarFeature()
         }
     }
 }

@@ -12,7 +12,7 @@ import Foundation
 public struct ArticleDetailReducer: Reducer, Sendable {
     // MARK: - State
     public struct State: Equatable, Sendable {
-        public var id: Int { article.id }
+        public var id: UUID { article.id }
         public let article: Article
         @BindingState public var liked = false
 

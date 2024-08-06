@@ -12,7 +12,7 @@ import ComposableArchitecture
 public struct ArticleItemReducer: Sendable {
     // MARK: - State
     public struct State: Equatable, Identifiable, Sendable {
-        public var id: Int { article.id }
+        public var id: UUID { article.id }
         let article: Article
         @BindingState var liked = false
 
@@ -28,7 +28,6 @@ public struct ArticleItemReducer: Sendable {
     // MARK: - Action
     public enum Action: BindableAction, Sendable, Equatable {
         case binding(BindingAction<State>)
-        
     }
 
     // MARK: - Dependencies
@@ -40,7 +39,7 @@ public struct ArticleItemReducer: Sendable {
 }
 
 extension IdentifiedArrayOf
-where Element == ArticleItemReducer.State, ID == Int {
+where Element == ArticleItemReducer.State, ID == UUID {
     init(response: SearchArticlesResponse) {
         self = IdentifiedArrayOf(uniqueElements: response.map { .make(from: $0) })
     }

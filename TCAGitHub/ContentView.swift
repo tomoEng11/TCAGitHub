@@ -18,9 +18,9 @@ struct ContentView: View {
                 Text("Github")
             }
 
-            
             SearchFavoritesView(store: .init(initialState: SearchFavoritesReducer.State(), reducer: {
                 SearchFavoritesReducer()
+
             }))
             .tabItem {
                 Image(systemName: "heart.circle")
@@ -29,6 +29,7 @@ struct ContentView: View {
 
             SearchArticlesView(store: .init(initialState: SearchArticlesReducer.State(), reducer: {
                 SearchArticlesReducer()
+                    ._printChanges()
             }))
             .tabItem {
                 Image(systemName: "person.fill.questionmark")
