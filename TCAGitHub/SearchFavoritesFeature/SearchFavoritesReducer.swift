@@ -55,6 +55,8 @@ public struct SearchFavoritesReducer: Sendable {
                 return .none
 
             case let .searchFavoritesResponse(.failure(error)):
+                print(error)
+                state.isLoading = false
                 return .none
 
             case .viewDidLoad:

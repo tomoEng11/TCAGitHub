@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ContentView: View {
     var body: some View {
@@ -29,14 +30,15 @@ struct ContentView: View {
 
             SearchArticlesView(store: .init(initialState: SearchArticlesReducer.State(), reducer: {
                 SearchArticlesReducer()
-                    ._printChanges()
             }))
             .tabItem {
                 Image(systemName: "person.fill.questionmark")
                 Text("Qiita")
             }
 
-            SearchLikesView()
+            SearchStockView(store: Store(initialState: SearchStockReducer.State(), reducer: {
+                SearchStockReducer()
+            }))
             .tabItem {
                 Image(systemName: "heart")
                 Text("QF")

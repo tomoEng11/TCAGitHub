@@ -11,6 +11,7 @@ import ComposableArchitecture
 @Reducer
 public struct ArticleItemReducer: Sendable {
     // MARK: - State
+  
     public struct State: Equatable, Identifiable, Sendable {
         public var id: UUID { article.id }
         let article: Article
@@ -29,8 +30,6 @@ public struct ArticleItemReducer: Sendable {
     public enum Action: BindableAction, Sendable, Equatable {
         case binding(BindingAction<State>)
     }
-
-    // MARK: - Dependencies
 
     // MARK: - Reducer
     public var body: some ReducerOf<Self> {

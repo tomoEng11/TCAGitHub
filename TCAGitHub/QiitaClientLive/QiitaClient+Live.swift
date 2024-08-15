@@ -14,8 +14,8 @@ extension QiitaClient: DependencyKey {
         .init(
             searchRepos: { query, page in
                 try await apiClient.send(request: SearchArticlesRequest(query: query, page: page))
-//            }, searchFavorites: {
-//                try await apiClient.send(request: SearchFavoritesRequest())
+            }, searchStock: { page in
+                try await apiClient.send(request: SearchStockRequest(page: page))
             }
             )
     }

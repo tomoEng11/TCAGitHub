@@ -11,7 +11,7 @@ import DependenciesMacros
 @DependencyClient
 public struct QiitaClient: Sendable {
     public var searchRepos: @Sendable (_ query: String, _ page: Int) async throws -> SearchArticlesResponse
-//    public var searchFavorites: @Sendable () async throws -> [SearchFavoritesResponseItem]
+    public var searchStock: @Sendable (_ page: Int) async throws -> SearchArticlesResponse
 }
 
 extension QiitaClient: TestDependencyKey {

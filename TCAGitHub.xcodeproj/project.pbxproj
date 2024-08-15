@@ -31,13 +31,15 @@
 		BB8285222C47BFF20043BF95 /* CustomSearchBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */; };
 		BB8C83F82C4FA45600EB31BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83F72C4FA45600EB31BA /* ContentView.swift */; };
 		BB8C83FC2C4FA97C00EB31BA /* SearchFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FB2C4FA97C00EB31BA /* SearchFavoritesView.swift */; };
-		BB8C84002C4FAAAA00EB31BA /* SearchLikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */; };
+		BB8C84002C4FAAAA00EB31BA /* SearchStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C83FF2C4FAAAA00EB31BA /* SearchStockView.swift */; };
 		BB8C84022C4FAAF000EB31BA /* SearchArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */; };
 		BB953FE82C4E919C003EC401 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = BB953FE72C4E919C003EC401 /* ComposableArchitecture */; };
 		BB953FEA2C4E9299003EC401 /* APIKit in Frameworks */ = {isa = PBXBuildFile; productRef = BB953FE92C4E9299003EC401 /* APIKit */; };
 		BBB955212C52485D001EFF92 /* SearchFavoritesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB955202C52485D001EFF92 /* SearchFavoritesReducer.swift */; };
 		BBB955232C527DE6001EFF92 /* SearchFavoritesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB955222C527DE6001EFF92 /* SearchFavoritesRequest.swift */; };
 		BBB955252C527E7B001EFF92 /* SearchFavoritesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB955242C527E7B001EFF92 /* SearchFavoritesResponse.swift */; };
+		BBD4A9972C6DB49300AD0B3E /* SearchStockRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4A9962C6DB49300AD0B3E /* SearchStockRequest.swift */; };
+		BBD4A9992C6DBCAE00AD0B3E /* SearchStockReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD4A9982C6DBCAE00AD0B3E /* SearchStockReducer.swift */; };
 		BBF579102C5B94E300C04DD7 /* SearchArticlesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF5790F2C5B94E300C04DD7 /* SearchArticlesReducer.swift */; };
 		BBF579132C5B9A2900C04DD7 /* QiitaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF579122C5B9A2900C04DD7 /* QiitaClient.swift */; };
 		BBF579162C5B9ACF00C04DD7 /* QiitaClient+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF579152C5B9ACF00C04DD7 /* QiitaClient+Live.swift */; };
@@ -77,11 +79,13 @@
 		BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBarFeature.swift; sourceTree = "<group>"; };
 		BB8C83F72C4FA45600EB31BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BB8C83FB2C4FA97C00EB31BA /* SearchFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesView.swift; sourceTree = "<group>"; };
-		BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLikesView.swift; sourceTree = "<group>"; };
+		BB8C83FF2C4FAAAA00EB31BA /* SearchStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockView.swift; sourceTree = "<group>"; };
 		BB8C84012C4FAAF000EB31BA /* SearchArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticlesView.swift; sourceTree = "<group>"; };
 		BBB955202C52485D001EFF92 /* SearchFavoritesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesReducer.swift; sourceTree = "<group>"; };
 		BBB955222C527DE6001EFF92 /* SearchFavoritesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesRequest.swift; sourceTree = "<group>"; };
 		BBB955242C527E7B001EFF92 /* SearchFavoritesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesResponse.swift; sourceTree = "<group>"; };
+		BBD4A9962C6DB49300AD0B3E /* SearchStockRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockRequest.swift; sourceTree = "<group>"; };
+		BBD4A9982C6DBCAE00AD0B3E /* SearchStockReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStockReducer.swift; sourceTree = "<group>"; };
 		BBF5790F2C5B94E300C04DD7 /* SearchArticlesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArticlesReducer.swift; sourceTree = "<group>"; };
 		BBF579122C5B9A2900C04DD7 /* QiitaClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaClient.swift; sourceTree = "<group>"; };
 		BBF579152C5B9ACF00C04DD7 /* QiitaClient+Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QiitaClient+Live.swift"; sourceTree = "<group>"; };
@@ -129,12 +133,13 @@
 			children = (
 				BB8284C02C465F270043BF95 /* TCAGitHubApp.swift */,
 				BB8C83F72C4FA45600EB31BA /* ContentView.swift */,
-				BB8C83FE2C4FAA7300EB31BA /* SearchLikesFeature */,
+				BB8C83FE2C4FAA7300EB31BA /* SearchStockFeature */,
 				BB8C83FD2C4FAA5E00EB31BA /* SearchArticlesFeature */,
 				BB8C83FA2C4FA95500EB31BA /* SearchFavoritesFeature */,
 				BB8284E52C465FBE0043BF95 /* SearchRepositoriesFeature */,
 				BBF579232C5F581B00C04DD7 /* ArticleDetailFeature */,
 				BB8284E02C465FAB0043BF95 /* RepositoryDetailFeature */,
+				BB86C4F22C6710D1006F3F73 /* CustomSearchBarFeature */,
 				BBF579142C5B9AB600C04DD7 /* QiitaClientLive */,
 				BB8284D92C465F950043BF95 /* GitHubClientLive */,
 				BB8284D62C465F780043BF95 /* GitHubClient */,
@@ -160,6 +165,7 @@
 			children = (
 				BB8284FA2C466A210043BF95 /* ApiClient.swift */,
 				BB8284FC2C466A480043BF95 /* BaseRequest.swift */,
+				BB82851B2C46750A0043BF95 /* Confidential.swift */,
 			);
 			path = ApiClient;
 			sourceTree = "<group>";
@@ -176,7 +182,6 @@
 			isa = PBXGroup;
 			children = (
 				BB8285092C466D5C0043BF95 /* GithubClient+Live.swift */,
-				BB82851B2C46750A0043BF95 /* Confidential.swift */,
 				BB82850B2C466DA70043BF95 /* GithubRequest.swift */,
 				BB82850D2C466DBF0043BF95 /* SearchReposRequest.swift */,
 				BBB955222C527DE6001EFF92 /* SearchFavoritesRequest.swift */,
@@ -200,8 +205,6 @@
 				BB8285192C4670840043BF95 /* SearchRepositoriesView.swift */,
 				BB8285112C466E4F0043BF95 /* RepositoryItemReducer.swift */,
 				BB8285172C46705E0043BF95 /* RepositoryItemView.swift */,
-				BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */,
-				BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */,
 			);
 			path = SearchRepositoriesFeature;
 			sourceTree = "<group>";
@@ -218,6 +221,15 @@
 				BB8285042C466ADA0043BF95 /* SearchReposResponse+Mock.swift */,
 			);
 			path = SharedModel;
+			sourceTree = "<group>";
+		};
+		BB86C4F22C6710D1006F3F73 /* CustomSearchBarFeature */ = {
+			isa = PBXGroup;
+			children = (
+				BB82851F2C47BF0A0043BF95 /* CustomSearchBarView.swift */,
+				BB8285212C47BFF20043BF95 /* CustomSearchBarFeature.swift */,
+			);
+			path = CustomSearchBarFeature;
 			sourceTree = "<group>";
 		};
 		BB8C83FA2C4FA95500EB31BA /* SearchFavoritesFeature */ = {
@@ -240,12 +252,13 @@
 			path = SearchArticlesFeature;
 			sourceTree = "<group>";
 		};
-		BB8C83FE2C4FAA7300EB31BA /* SearchLikesFeature */ = {
+		BB8C83FE2C4FAA7300EB31BA /* SearchStockFeature */ = {
 			isa = PBXGroup;
 			children = (
-				BB8C83FF2C4FAAAA00EB31BA /* SearchLikesView.swift */,
+				BB8C83FF2C4FAAAA00EB31BA /* SearchStockView.swift */,
+				BBD4A9982C6DBCAE00AD0B3E /* SearchStockReducer.swift */,
 			);
-			path = SearchLikesFeature;
+			path = SearchStockFeature;
 			sourceTree = "<group>";
 		};
 		BBF579112C5B9A0200C04DD7 /* QiitaClient */ = {
@@ -262,6 +275,7 @@
 				BBF579152C5B9ACF00C04DD7 /* QiitaClient+Live.swift */,
 				BBF579172C5B9E4F00C04DD7 /* QiitaRequest.swift */,
 				BBF5791B2C5E1D2800C04DD7 /* SearchArticlesRequest.swift */,
+				BBD4A9962C6DB49300AD0B3E /* SearchStockRequest.swift */,
 			);
 			path = QiitaClientLive;
 			sourceTree = "<group>";
@@ -354,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBF579222C5E4A1B00C04DD7 /* ArticleItemReducer.swift in Sources */,
+				BBD4A9992C6DBCAE00AD0B3E /* SearchStockReducer.swift in Sources */,
 				BB8C83FC2C4FA97C00EB31BA /* SearchFavoritesView.swift in Sources */,
 				BB8284FD2C466A480043BF95 /* BaseRequest.swift in Sources */,
 				BB8285122C466E4F0043BF95 /* RepositoryItemReducer.swift in Sources */,
@@ -362,7 +377,7 @@
 				BB8285162C466F5F0043BF95 /* RepositoryDetailView.swift in Sources */,
 				BBF579102C5B94E300C04DD7 /* SearchArticlesReducer.swift in Sources */,
 				BBF579292C5F5EAE00C04DD7 /* ArticleItemView.swift in Sources */,
-				BB8C84002C4FAAAA00EB31BA /* SearchLikesView.swift in Sources */,
+				BB8C84002C4FAAAA00EB31BA /* SearchStockView.swift in Sources */,
 				BB8285182C46705E0043BF95 /* RepositoryItemView.swift in Sources */,
 				BB8285202C47BF0A0043BF95 /* CustomSearchBarView.swift in Sources */,
 				BBF579182C5B9E4F00C04DD7 /* QiitaRequest.swift in Sources */,
@@ -382,6 +397,7 @@
 				BBF579252C5F584700C04DD7 /* ArticleDetailReducer.swift in Sources */,
 				BBB955252C527E7B001EFF92 /* SearchFavoritesResponse.swift in Sources */,
 				BBB955212C52485D001EFF92 /* SearchFavoritesReducer.swift in Sources */,
+				BBD4A9972C6DB49300AD0B3E /* SearchStockRequest.swift in Sources */,
 				BB8285082C466C800043BF95 /* GithubClient.swift in Sources */,
 				BB8285102C466E1F0043BF95 /* SearchRepositoriesReducer.swift in Sources */,
 				BB8C84022C4FAAF000EB31BA /* SearchArticlesView.swift in Sources */,

@@ -16,7 +16,7 @@ public struct Article: Equatable, Sendable {
 }
 
 public extension Article {
-    init (from item:ArticleItem) {
+    init (from item: ArticleItem) {
         // IDない時にどう実装するか考える
         self.id = UUID()
         self.title = item.title
