@@ -1,5 +1,5 @@
 //
-//  SearchArticlesView.swift
+//  SearchStockView.swift
 //  TCAGitHub
 //
 //  Created by 井本智博 on 2024/07/23.
@@ -8,27 +8,21 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct SearchArticlesView: View {
-    let store: StoreOf<SearchArticlesReducer>
+struct SearchStockView: View {
+    let store: StoreOf<SearchStockReducer>
     struct ViewState: Equatable {
         @BindingViewState var showFavoritesOnly: Bool
-        let hasMorePage: Bool
+        let isLoading: Bool
 
-        init(store: BindingViewStore<SearchArticlesReducer.State>) {
+        init(store: BindingViewStore<SearchStockReducer.State>) {
             self._showFavoritesOnly = store.$showFavoritesOnly
-            self.hasMorePage = store.hasMorePage
+            self.isLoading = store.isLoading
         }
     }
 
-    public init(store: StoreOf<SearchArticlesReducer>) {
-        self.store = store
-    }
-
-    public var body: some View {
+    var body: some View {
         NavigationStackStore(store.scope(state: \.path, action: \.path)) {
             WithViewStore(store, observe: ViewState.init(store:)) { viewStore in
-
-                CustomSearchBarView(store: store.scope(state: \.searchBar, action: \.searchBar))
 
                 List {
                     Toggle(isOn: viewStore.$showFavoritesOnly) {
@@ -48,16 +42,19 @@ struct SearchArticlesView: View {
                             ) {
                                 ArticleItemView(store: itemStore)
                                     .onAppear {
-                                        viewStore.send(.itemAppeared)
+                                        viewStore.send(.itemAppeared(itemViewStore.article.id))
                                     }
                             }
                         }
                     }
 
-                    if viewStore.hasMorePage {
+                    if viewStore.isLoading {
                         ProgressView()
                             .frame(maxWidth: .infinity)
                     }
+                }
+                .onAppear {
+                    viewStore.send(.viewDidLoad)
                 }
             }
         } destination: {
@@ -67,5 +64,5 @@ struct SearchArticlesView: View {
 }
 
 //#Preview {
-//    SearchArticlesView(store: <#StoreOf<SearchArticlesReducer>#>)
+//    SearchStockView(store: .init(initialState: Search, reducer: <#T##() -> Reducer#>))
 //}
